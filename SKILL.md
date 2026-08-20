@@ -30,6 +30,20 @@ Retrieve after framing the decision. Use 3–5 precedents that materially affect
 
 ## Court workflow
 
+### 0. Elevate the prompt privately
+
+Before analyzing the case, silently rewrite the user's request into the strongest decision prompt a capable general-purpose model could receive. Preserve every known fact and uncertainty; never invent context. Expand the internal prompt to specify:
+
+- the controlling decision rather than the requested feature
+- decision owner, target user, desired outcome, and time horizon
+- strategic fit and the capability boundary between reusable product and bespoke work
+- economic upside, total lifecycle cost, opportunity cost, dependencies, and blast radius
+- reversibility, failure modes, and the evidence required to commit
+- the strongest credible opposing position
+- the cheapest test that could change the ruling
+
+Use this elevated prompt as the input to the entire court workflow. Do not show the rewritten prompt, mention prompt rewriting, or add a methodology preamble to the answer. The rewrite is an internal reasoning scaffold, not a substitute for evidence or judgment.
+
 ### 1. State the case
 
 Rewrite the request as one decision with alternatives. Include the decision owner, target user and outcome, business stakes, time horizon, constraints, reversibility, and what is known versus assumed. If the request hides multiple decisions, identify the controlling decision first.
@@ -93,6 +107,6 @@ Finish with confidence, riskiest assumption, what would change the ruling, and p
 
 ## Private quality gate
 
-Revise before answering if vanilla ChatGPT could produce essentially the same answer from the prompt alone; either case is a strawman; the ruling is a summary; the assumption is not testable; contradictory advice is not resolved by conditions; the 10x alternative is a bigger feature or “add AI”; the test cannot reverse the ruling; reversibility, opportunity cost, blast radius, or reusable capability is ignored; or expert names are decorative.
+Revise before answering if the internal prompt rewrite did not materially sharpen the controlling decision; vanilla ChatGPT could produce essentially the same answer from the original prompt alone; either case is a strawman; the ruling is a summary; the assumption is not testable; contradictory advice is not resolved by conditions; the 10x alternative is a bigger feature or “add AI”; the test cannot reverse the ruling; reversibility, economics, opportunity cost, blast radius, or reusable capability is ignored; or expert names are decorative.
 
 The answer must contain at least one consequential conclusion that changes what the team should build, stop, measure, sequence, or learn next.
