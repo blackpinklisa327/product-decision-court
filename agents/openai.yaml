@@ -3,8 +3,6 @@ interface:
   short_description: Put a product decision on trial
   default_prompt: Use Product Decision Court to evaluate this product decision, argue
     both sides, issue a ruling, and name what would change the decision.
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
 policy:
   products:
   - chatgpt
