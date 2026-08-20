@@ -34,32 +34,25 @@ The repository contains two evidence tiers:
 
 Provisional clusters are not presented as consensus or attributed as synthesized claims. The raw podcast transcripts are intentionally not included.
 
-## Install in ChatGPT and Codex
+## Use as a skill
 
-Add the GitHub repository as a plugin marketplace:
+Product Decision Court is a standalone Agent Skill. The same `SKILL.md`, script, and references work in ChatGPT/Codex and Claude Code.
 
-```bash
-codex plugin marketplace add blackpinklisa327/product-decision-court --ref main
-```
+In ChatGPT, install the skill and invoke it with `@Product Decision Court`.
 
-Then open the Plugins Directory in the ChatGPT desktop app, select the **Product Decision Court** marketplace, and install **Product Decision Court**.
-
-Invoke it in ChatGPT with `@Product Decision Court` or in Codex with `$product-decision-court`.
-
-## Install in Claude Code
-
-Run:
+For a local Codex installation, ask `$skill-installer` to install the skill from:
 
 ```text
-/plugin marketplace add blackpinklisa327/product-decision-court
-/plugin install product-decision-court@product-decision-court
+https://github.com/blackpinklisa327/product-decision-court
 ```
 
-Invoke it with:
+For a project-scoped Claude Code installation, copy this repository into:
 
 ```text
-/product-decision-court:product-decision-court
+.claude/skills/product-decision-court/
 ```
+
+Then invoke it with `/product-decision-court`.
 
 ## Try it
 
@@ -82,19 +75,13 @@ python3 scripts/retrieve_precedents.py \
 ## Repository structure
 
 ```text
-.agents/plugins/marketplace.json
-.claude-plugin/marketplace.json
-plugins/product-decision-court/
-  .codex-plugin/plugin.json
-  .claude-plugin/plugin.json
-  skills/product-decision-court/
-    SKILL.md
-    agents/openai.yaml
-    scripts/retrieve_precedents.py
-    references/
+SKILL.md
+agents/openai.yaml
+scripts/retrieve_precedents.py
+references/audited_precedents.csv
+references/provisional_clusters.csv
+references/evidence-policy.md
 ```
-
-The top-level skill files remain as a readable source copy. The installable ChatGPT/Codex and Claude packages use the files under `plugins/product-decision-court/`.
 
 ## Current maturity
 
