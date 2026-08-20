@@ -2,50 +2,82 @@
 
 Put a consequential product decision on trial.
 
-Product Decision Court is an **Agent Skill for ChatGPT Work and Codex**. It builds the strongest case for and against a product bet, resolves conflicting advice based on the conditions of the case, and issues one ruling: **build, test, defer, reject, scale, or stop**.
+Product Decision Court is a standalone **Agent Skill for regular Claude, the ChatGPT desktop app, Codex, and Claude Code**. It turns a product question into one clear recommendation: **build, test, defer, reject, scale, or stop**.
 
-It is designed for decisions such as:
+## Quick compatibility guide
 
-- Should we build a major customer's custom request?
-- Should we invest in acquisition or repair retention?
-- Is an AI copilot ready to become an autopilot?
-- Should we launch now or delay for quality?
-- Should we follow a competitor or differentiate?
-- Should we scale a bet or stop investing?
+| Where you want to use it | Supported? | Installation |
+|---|---|---|
+| Regular Claude chat | Yes | Upload the skill ZIP in **Customize → Skills** |
+| Claude Cowork | Yes | Uses the same Claude skill |
+| ChatGPT desktop app | Yes | Add the skill from **Skills** in the sidebar |
+| ChatGPT Work | Yes | Uses the same ChatGPT skill |
+| Codex | Yes | Install directly from this GitHub repository |
+| Claude Code | Yes | Copy the skill into `.claude/skills/` |
+| Regular ChatGPT web or mobile | Not as a standalone GitHub skill | Plugin packaging is required |
 
-## Install in ChatGPT
+You do not need separate ChatGPT and Claude versions. Both products use the same `SKILL.md` and supporting files in this repository.
 
-GitHub does not currently provide an **Add to ChatGPT** button for standalone skills. Install the skill by uploading it to a ChatGPT Work conversation:
+## Prepare the ZIP
 
-1. On this GitHub page, select **Code**, then **Download ZIP**.
-2. Open a new **ChatGPT Work** conversation.
-3. Attach the downloaded ZIP.
-4. Enter:
+GitHub adds `-main` to the downloaded folder name, while skill installers may expect the folder name to match the skill name. Prepare the ZIP once before uploading it to Claude or ChatGPT:
+
+1. Select **Code → Download ZIP** on this repository.
+2. Unzip the download.
+3. Rename the folder from `product-decision-court-main` to `product-decision-court`.
+4. Compress that renamed folder into a new file named `product-decision-court.zip`.
+
+The ZIP should have this top-level structure:
+
+```text
+product-decision-court.zip
+└── product-decision-court/
+    ├── SKILL.md
+    ├── agents/
+    ├── references/
+    └── scripts/
+```
+
+## Install in regular Claude
+
+1. Open Claude on the web or in Claude Desktop.
+2. Go to **Customize → Skills**.
+3. Select **+ → Create skill → Upload a skill**.
+4. Upload `product-decision-court.zip`.
+5. Enable the skill if it is not already enabled.
+6. Ask:
 
    ```text
-   Install Product Decision Court as a skill.
+   Use Product Decision Court. Should we build this customer request?
    ```
 
-5. After ChatGPT confirms installation, open a new conversation if needed and invoke:
+Claude may also choose the skill automatically when your question matches its purpose.
 
-   ```text
-   @Product Decision Court
-   ```
+## Install in the ChatGPT desktop app
 
-You can also describe the decision normally. ChatGPT can select the skill automatically when the request matches it.
+Standalone skills are supported in the ChatGPT desktop app.
 
-> **Important:** This repository is the standalone skill source. It is not a plugin, so it will not appear in the public Plugins directory and GitHub cannot install it into ChatGPT with one click.
+1. Open the ChatGPT desktop app.
+2. Open **Skills** in the sidebar.
+3. Choose the option to add or upload a skill.
+4. Select `product-decision-court.zip`.
+5. Enable Product Decision Court.
+6. Type `@` in a new chat and select **Product Decision Court**, or ask a matching product-decision question normally.
+
+If the Skills or upload control is not visible, standalone skill installation may not yet be enabled for that account or workspace.
+
+> GitHub does not provide an **Add to ChatGPT** button. A standalone GitHub skill also cannot currently be installed directly into regular ChatGPT on the web or mobile. Broader one-click ChatGPT distribution requires packaging this skill as a plugin.
 
 ## Install in Codex
 
-Ask Codex to install the skill directly from this repository:
+Ask Codex:
 
 ```text
 $skill-installer install the skill from:
 https://github.com/blackpinklisa327/product-decision-court
 ```
 
-Then invoke it with:
+Invoke it with:
 
 ```text
 $product-decision-court
@@ -53,56 +85,59 @@ $product-decision-court
 
 ## Install in Claude Code
 
-For a project-scoped Claude Code installation, copy or clone this repository into:
+For one project:
 
-```text
-.claude/skills/product-decision-court/
+```bash
+git clone https://github.com/blackpinklisa327/product-decision-court \
+  .claude/skills/product-decision-court
 ```
 
-Then invoke it with:
+Invoke it with:
 
 ```text
 /product-decision-court
 ```
 
-## What makes it different
+## What it does
 
-A generic AI answer often gives reasonable pros and cons without making the call. Product Decision Court requires:
+Product Decision Court starts with a simple executive summary:
 
-1. The real decision and the load-bearing assumption
-2. A credible prosecution and defense
-3. The conditions under which conflicting advice is right
-4. One structurally different 10x alternative
-5. A ruling with scope and timing
-6. The cheapest decisive test
-7. The evidence that would reverse the ruling
+- **Decision:** What to do
+- **Why:** The decisive reason
+- **Do next:** The immediate action or test
+- **Watch:** The assumption most likely to change the recommendation
 
-## Evidence library
+Behind that summary, it:
 
-The repository contains two evidence tiers:
+- Finds the real decision rather than accepting the requested feature at face value
+- Builds the strongest case against and for the bet
+- Separates reusable product capability from bespoke customer work
+- Uses selective online research when a current external fact could change the recommendation
+- Produces one ruling with scope and timing
+- Defines the cheapest decisive test
+- States the evidence that would reverse the recommendation
 
-- **20 audited precedents** with a principle, causal mechanism, landmine, tradeoff, and source attribution
-- **285 provisional evidence clusters** used to discover additional perspectives and disagreements
+## Good questions to try
 
-Provisional clusters are not presented as consensus or attributed as synthesized claims. The raw podcast transcripts are intentionally not included.
+- Should we build a major customer's custom request?
+- Should we invest in acquisition or repair retention?
+- Is an AI copilot ready to become an autopilot?
+- Should we launch now or delay for quality?
+- Should we follow a competitor or differentiate?
+- Should we scale this bet or stop investing?
 
-## Try it
-
-Ask:
+Example:
 
 > Use Product Decision Court. Should we spend six weeks building this enterprise customer's custom request?
 
-You can also invoke it for a specific decision type:
+## Evidence library
 
-> Put our plan to promote this AI copilot to autopilot through Product Decision Court. Default to medium length.
+The repository contains:
 
-## Retrieve precedents directly
+- **20 audited precedents** with principles, causal mechanisms, landmines, tradeoffs, and source attribution
+- **285 provisional evidence clusters** for discovering additional perspectives and disagreements
 
-```bash
-python3 scripts/retrieve_precedents.py \
-  --query "custom enterprise customer request distracts roadmap" \
-  --limit 8
-```
+The provisional clusters are not presented as consensus or attributed as synthesized claims. The raw podcast transcripts are intentionally not included.
 
 ## Repository structure
 
@@ -115,10 +150,6 @@ references/provisional_clusters.csv
 references/evidence-policy.md
 ```
 
-## Current maturity
-
-This is a usable first release, not a finished claim that all 305 records are equally trustworthy. The 20 audited precedents can support direct reasoning and careful attribution. The 285 provisional clusters broaden discovery but still require further synthesis and auditing before becoming canonical judgment cards.
-
 ## Source note
 
-The decision patterns were derived from a public archive of Lenny's Podcast transcripts. Product Decision Court does not reproduce or redistribute the transcript archive, and the podcast is an evidence source rather than the product's public identity.
+The decision patterns were derived from a public archive of Lenny's Podcast transcripts. Product Decision Court does not reproduce or redistribute the transcript archive. The podcast is an evidence source rather than the product's public identity.
