@@ -2,7 +2,7 @@
 
 Put a consequential product decision on trial.
 
-Product Decision Court builds the strongest case for and against a product bet, resolves conflicting advice based on the conditions of the case, and issues one ruling: **build, test, defer, reject, scale, or stop**.
+Product Decision Court is an **Agent Skill for ChatGPT Work and Codex**. It builds the strongest case for and against a product bet, resolves conflicting advice based on the conditions of the case, and issues one ruling: **build, test, defer, reject, scale, or stop**.
 
 It is designed for decisions such as:
 
@@ -12,6 +12,58 @@ It is designed for decisions such as:
 - Should we launch now or delay for quality?
 - Should we follow a competitor or differentiate?
 - Should we scale a bet or stop investing?
+
+## Install in ChatGPT
+
+GitHub does not currently provide an **Add to ChatGPT** button for standalone skills. Install the skill by uploading it to a ChatGPT Work conversation:
+
+1. On this GitHub page, select **Code**, then **Download ZIP**.
+2. Open a new **ChatGPT Work** conversation.
+3. Attach the downloaded ZIP.
+4. Enter:
+
+   ```text
+   Install Product Decision Court as a skill.
+   ```
+
+5. After ChatGPT confirms installation, open a new conversation if needed and invoke:
+
+   ```text
+   @Product Decision Court
+   ```
+
+You can also describe the decision normally. ChatGPT can select the skill automatically when the request matches it.
+
+> **Important:** This repository is the standalone skill source. It is not a plugin, so it will not appear in the public Plugins directory and GitHub cannot install it into ChatGPT with one click.
+
+## Install in Codex
+
+Ask Codex to install the skill directly from this repository:
+
+```text
+$skill-installer install the skill from:
+https://github.com/blackpinklisa327/product-decision-court
+```
+
+Then invoke it with:
+
+```text
+$product-decision-court
+```
+
+## Install in Claude Code
+
+For a project-scoped Claude Code installation, copy or clone this repository into:
+
+```text
+.claude/skills/product-decision-court/
+```
+
+Then invoke it with:
+
+```text
+/product-decision-court
+```
 
 ## What makes it different
 
@@ -33,26 +85,6 @@ The repository contains two evidence tiers:
 - **285 provisional evidence clusters** used to discover additional perspectives and disagreements
 
 Provisional clusters are not presented as consensus or attributed as synthesized claims. The raw podcast transcripts are intentionally not included.
-
-## Use as a skill
-
-Product Decision Court is a standalone Agent Skill. The same `SKILL.md`, script, and references work in ChatGPT/Codex and Claude Code.
-
-In ChatGPT, install the skill and invoke it with `@Product Decision Court`.
-
-For a local Codex installation, ask `$skill-installer` to install the skill from:
-
-```text
-https://github.com/blackpinklisa327/product-decision-court
-```
-
-For a project-scoped Claude Code installation, copy this repository into:
-
-```text
-.claude/skills/product-decision-court/
-```
-
-Then invoke it with `/product-decision-court`.
 
 ## Try it
 
