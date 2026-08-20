@@ -1,0 +1,18 @@
+{
+  "name": "product-decision-court",
+  "version": "1.0.0",
+  "description": "Put a consequential product decision on trial and issue a defensible ruling.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Product Decision Court",
+    "shortDescription": "Put a product decision on trial",
+    "longDescription": "Argue the strongest case for and against a product bet, resolve conflicting advice based on context, and issue one ruling with a decisive test and explicit reversal conditions.",
+    "developerName": "blackpinklisa327",
+    "category": "Productivity",
+    "capabilities": [
+      "Evaluate product bets",
+      "Resolve conflicting product advice",
+      "Issue build, test, defer, reject, scale, or stop rulings"
+    ]
+  }
+}
