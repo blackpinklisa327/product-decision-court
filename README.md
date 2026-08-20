@@ -34,9 +34,36 @@ The repository contains two evidence tiers:
 
 Provisional clusters are not presented as consensus or attributed as synthesized claims. The raw podcast transcripts are intentionally not included.
 
-## Use as a ChatGPT or Codex skill
+## Install in ChatGPT and Codex
 
-Install the repository as a skill, then ask:
+Add the GitHub repository as a plugin marketplace:
+
+```bash
+codex plugin marketplace add blackpinklisa327/product-decision-court --ref main
+```
+
+Then open the Plugins Directory in the ChatGPT desktop app, select the **Product Decision Court** marketplace, and install **Product Decision Court**.
+
+Invoke it in ChatGPT with `@Product Decision Court` or in Codex with `$product-decision-court`.
+
+## Install in Claude Code
+
+Run:
+
+```text
+/plugin marketplace add blackpinklisa327/product-decision-court
+/plugin install product-decision-court@product-decision-court
+```
+
+Invoke it with:
+
+```text
+/product-decision-court:product-decision-court
+```
+
+## Try it
+
+Ask:
 
 > Use Product Decision Court. Should we spend six weeks building this enterprise customer's custom request?
 
@@ -55,13 +82,19 @@ python3 scripts/retrieve_precedents.py \
 ## Repository structure
 
 ```text
-SKILL.md
-agents/openai.yaml
-scripts/retrieve_precedents.py
-references/audited_precedents.csv
-references/provisional_clusters.csv
-references/evidence-policy.md
+.agents/plugins/marketplace.json
+.claude-plugin/marketplace.json
+plugins/product-decision-court/
+  .codex-plugin/plugin.json
+  .claude-plugin/plugin.json
+  skills/product-decision-court/
+    SKILL.md
+    agents/openai.yaml
+    scripts/retrieve_precedents.py
+    references/
 ```
+
+The top-level skill files remain as a readable source copy. The installable ChatGPT/Codex and Claude packages use the files under `plugins/product-decision-court/`.
 
 ## Current maturity
 
