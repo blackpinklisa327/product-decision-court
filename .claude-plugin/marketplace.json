@@ -1,0 +1,22 @@
+{
+  "name": "product-decision-court",
+  "owner": {
+    "name": "blackpinklisa327",
+    "url": "https://github.com/blackpinklisa327"
+  },
+  "description": "Product judgment skills for consequential product decisions.",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "product-decision-court",
+      "source": "./plugins/product-decision-court",
+      "description": "Put a consequential product decision on trial and issue a defensible ruling.",
+      "version": "1.0.0",
+      "author": {
+        "name": "blackpinklisa327"
+      },
+      "category": "product-management",
+      "tags": ["product", "strategy", "decision-making", "product-management"]
+    }
+  ]
+}
