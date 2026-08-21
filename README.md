@@ -45,13 +45,13 @@ product-decision-court.zip
 3. Select **+ → Create skill → Upload a skill**.
 4. Upload `product-decision-court.zip`.
 5. Enable the skill if it is not already enabled.
-6. Ask:
+6. Ask a product-decision question normally:
 
    ```text
-   Use Product Decision Court. Should we build this customer request?
+   Should we build this customer request?
    ```
 
-Claude may also choose the skill automatically when your question matches its purpose.
+Claude should select Product Decision Court automatically when the question matches its purpose. To force this specific skill, invoke `/product-decision-court` if your Claude interface supports skill commands, or write `Use Product Decision Court.`
 
 ## Install in the ChatGPT desktop app
 
@@ -62,7 +62,9 @@ Standalone skills are supported in the ChatGPT desktop app.
 3. Choose the option to add or upload a skill.
 4. Select `product-decision-court.zip`.
 5. Enable Product Decision Court.
-6. Type `@` in a new chat and select **Product Decision Court**, or ask a matching product-decision question normally.
+6. Ask a matching product-decision question normally. ChatGPT should select Product Decision Court automatically.
+
+Use `@Product Decision Court` only when you want to force this specific skill, such as when multiple installed skills could handle the request.
 
 If the Skills or upload control is not visible, standalone skill installation may not yet be enabled for that account or workspace.
 
@@ -77,7 +79,7 @@ $skill-installer install the skill from:
 https://github.com/blackpinklisa327/product-decision-court
 ```
 
-Invoke it with:
+Ask a matching product-decision question normally and Codex should select the skill automatically. To force this specific skill, invoke:
 
 ```text
 $product-decision-court
@@ -92,7 +94,7 @@ git clone https://github.com/blackpinklisa327/product-decision-court \
   .claude/skills/product-decision-court
 ```
 
-Invoke it with:
+Ask a matching product-decision question normally and Claude Code should select the skill automatically. To force this specific skill, invoke:
 
 ```text
 /product-decision-court
@@ -117,6 +119,19 @@ Behind that summary, it:
 - Defines the cheapest decisive test
 - States the evidence that would reverse the recommendation
 
+## How to prompt it
+
+You normally do not need to name the skill. Ask the product question directly:
+
+> Should AiPrise build a custom registry-lookup capability for a major enterprise customer if it could distract from the core KYB case-management roadmap?
+
+The skill is designed to activate automatically for consequential product decisions. Explicit invocation is optional and useful when you want to guarantee Product Decision Court handles the request:
+
+- **ChatGPT:** `@Product Decision Court`
+- **Codex:** `$product-decision-court`
+- **Claude Code:** `/product-decision-court`
+- **Claude chat:** Write `Use Product Decision Court.` if automatic selection does not occur
+
 ## Good questions to try
 
 - Should we build a major customer's custom request?
@@ -128,7 +143,7 @@ Behind that summary, it:
 
 Example:
 
-> Use Product Decision Court. Should we spend six weeks building this enterprise customer's custom request?
+> Should we spend six weeks building this enterprise customer's custom request?
 
 ## Evidence library
 
